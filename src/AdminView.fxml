@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminViewController">
+   <children>
+      <AnchorPane prefHeight="800.0" prefWidth="1000.0">
+         <children>
+            <BorderPane layoutX="21.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <left>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane prefHeight="455.0" prefWidth="200.0" style="-fx-background-color: beige;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label layoutX="64.0" layoutY="140.0" text="Welcome,">
+                                 <font>
+                                    <Font name="Cambria" size="18.0" />
+                                 </font></Label>
+                              <Label layoutX="61.0" layoutY="162.0" text="ADMIN!">
+                                 <font>
+                                    <Font name="Cambria" size="24.0" />
+                                 </font></Label>
+                              <Line endX="38.5" layoutX="131.0" layoutY="211.0" startX="-100.0" />
+                              <Button fx:id="usersBtn" layoutX="12.0" layoutY="237.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" text="USERS">
+                                 <font>
+                                    <Font name="Cambria" size="14.0" />
+                                 </font></Button>
+                              <Button fx:id="transBtn" layoutX="12.0" layoutY="300.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" text="TRANSACTIONS">
+                                 <font>
+                                    <Font name="Cambria" size="14.0" />
+                                 </font></Button>
+                              <Button fx:id="hotelsBtn" layoutX="12.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" text="PROPERTIES">
+                                 <font>
+                                    <Font name="Cambria" size="14.0" />
+                                 </font></Button>
+                              <Button fx:id="logoutBtn" layoutX="12.0" layoutY="561.0" mnemonicParsing="false" onAction="#logout" text="LOGOUT" />
+                              <ImageView fitHeight="83.0" fitWidth="99.0" layoutX="61.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../icon2.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Line endX="7.0" endY="509.0" layoutX="200.0" layoutY="86.0" startX="7.0" startY="-79.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane style="-fx-background-color: beige;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane fx:id="usersPane" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: beige;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <TableView fx:id="usersTable" layoutX="13.0" layoutY="192.0" onMouseClicked="#getUser" onSort="#loadUsers" prefHeight="400.0" prefWidth="775.0">
+                                      <columns>
+                                        <TableColumn fx:id="uIdCol" minWidth="15.0" prefWidth="85.0" text="User ID" />
+                                        <TableColumn fx:id="emailCol" minWidth="-Infinity" prefWidth="200.0" text="Email" />
+                                          <TableColumn fx:id="fNameCol" prefWidth="125.0" text="First Name" />
+                                          <TableColumn fx:id="lNameCol" prefWidth="125.0" text="Last Name" />
+                                          <TableColumn fx:id="noCol" prefWidth="120.0" text="Phone Number" />
+                                          <TableColumn fx:id="pwCol" prefWidth="125.0" text="Password" />
+                                      </columns>
+                                    </TableView>
+                                    <Label layoutX="16.0" layoutY="14.0" text="Agoda Users">
+                                       <font>
+                                          <Font name="Cambria" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="delUserBtn" layoutX="722.0" layoutY="154.0" mnemonicParsing="false" onAction="#deleteUser" text="Delete">
+                                       <font>
+                                          <Font name="Cambria" size="12.0" />
+                                       </font></Button>
+                                    <Button fx:id="udUserBtn" layoutX="36.0" layoutY="154.0" mnemonicParsing="false" onAction="#updateUser" text="Update">
+                                       <font>
+                                          <Font name="Cambria" size="12.0" />
+                                       </font></Button>
+                                    <TextField fx:id="lastnameTxt" layoutX="288.0" layoutY="121.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="225.0" promptText="Last Name" />
+                                    <TextField fx:id="emailTxt" layoutX="288.0" layoutY="62.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="225.0" promptText="Email" />
+                                    <TextField fx:id="firstnameTxt" layoutX="36.0" layoutY="121.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="225.0" promptText="First Name" />
+                                    <TextField fx:id="passTxt" layoutX="548.0" layoutY="121.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="225.0" promptText="Passwrord" />
+                                    <TextField fx:id="phoneTxt" layoutX="548.0" layoutY="62.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="225.0" promptText="Phone Number" />
+                                    <TextArea fx:id="userIdTxt" editable="false" layoutX="36.0" layoutY="57.0" prefHeight="30.0" prefWidth="130.0" promptText="User ID" />
+                                    <TextField fx:id="searchField" layoutX="536.0" layoutY="13.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" promptText="Looking for something?">
+                                       <font>
+                                          <Font name="Cambria" size="12.0" />
+                                       </font></TextField>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="transPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: beige;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <TableView fx:id="transTable" layoutX="13.0" layoutY="192.0" prefHeight="400.0" prefWidth="775.0">
+                                      <columns>
+                                        <TableColumn fx:id="resNumCol" prefWidth="205.0" text="Res Num" />
+                                          <TableColumn fx:id="hotelCol" prefWidth="130.0" text="Hotel Code" />
+                                          <TableColumn fx:id="inDateCol" prefWidth="155.0" text="Check In" />
+                                          <TableColumn fx:id="outDateCol" prefWidth="155.0" text="Check Out" />
+                                          <TableColumn fx:id="emailtransCol" prefWidth="130.0" text="Email" />
+                                      </columns>
+                                    </TableView>
+                                    <Button fx:id="deleteTransBtn" layoutX="736.0" layoutY="159.0" mnemonicParsing="false" onAction="#deleteTrans" text="Delete">
+                                       <font>
+                                          <Font name="Cambria" size="12.0" />
+                                       </font></Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="hotelsPane" prefHeight="600.0" prefWidth="594.0" style="-fx-background-color: beige;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <AnchorPane layoutX="13.0" layoutY="13.0" />
+                                    <TextField fx:id="protypeCodeTxt" layoutX="596.0" layoutY="104.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="180.0" promptText="Property Code" />
+                                    <TextField fx:id="protypeAddTxt" layoutX="22.0" layoutY="104.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="38.0" prefWidth="562.0" promptText="Address" />
+                                    <TextField fx:id="protypeRatingTxt" layoutX="596.0" layoutY="59.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="180.0" promptText="Rating" />
+                                    <TableView fx:id="hotelsTable" layoutX="13.0" layoutY="192.0" onMouseClicked="#getProperty" onSort="#loadHotels" prefHeight="400.0" prefWidth="775.0">
+                                      <columns>
+                                          <TableColumn fx:id="typeCol" prefWidth="75.0" text="Type" />
+                                        <TableColumn fx:id="codeCol" prefWidth="90.0" text="Property Code" />
+                                        <TableColumn fx:id="hnameCol" prefWidth="245.0" text="Name" />
+                                          <TableColumn fx:id="addressCol" prefWidth="300.0" text="Address" />
+                                          <TableColumn fx:id="ratingCol" prefWidth="65.0" text="Rating" />
+                                      </columns>
+                                    </TableView>
+                                    <Button fx:id="updateProBtn" layoutX="585.0" layoutY="147.0" mnemonicParsing="false" onAction="#updatePro" text="Update">
+                                       <font>
+                                          <Font name="Cambria" size="12.0" />
+                                       </font></Button>
+                                    <Button fx:id="addProBtn" layoutX="672.0" layoutY="147.0" mnemonicParsing="false" onAction="#addNewPro" text="Add New Property">
+                                       <font>
+                                          <Font name="Cambria" size="12.0" />
+                                       </font></Button>
+                                    <Button fx:id="delProBtn" layoutX="14.0" layoutY="147.0" mnemonicParsing="false" onAction="#deletePro" text="Delete">
+                                       <font>
+                                          <Font name="Cambria" size="12.0" />
+                                       </font></Button>
+                                    <ComboBox fx:id="protypeComb" layoutX="324.0" layoutY="59.0" prefHeight="30.0" prefWidth="261.0" promptText="Type..." />
+                                    <TextField fx:id="protypeNameTxt" layoutX="22.0" layoutY="59.0" prefHeight="30.0" prefWidth="288.0" promptText="Property name" />
+                                    <TextField fx:id="searchField1" layoutX="526.0" layoutY="14.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" promptText="Looking for something?">
+                                       <font>
+                                          <Font name="Cambria" size="12.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label layoutX="22.0" layoutY="15.0" text="Agoda Partner Properties">
+                                       <font>
+                                          <Font name="Cambria" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children></AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
